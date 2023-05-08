@@ -5,12 +5,10 @@
   <link href="../dist/output.css" rel="stylesheet">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lim Calculator</title>
   <link
-    rel="stylesheet"
-    href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
-    crossorigin="anonymous" />
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
 </head>
 <body>
     <div class="bg-gray-200 w-screen h-screen flex justify-center items-center">
@@ -19,44 +17,61 @@
             <div class="flex items-center text-xs space-x-1">
             </div>
           </div>
-          <div class="w-auto m-3 h-28 text-right space-y-2 py-2">
-            <div class=" bg-white">10+10x5</div>
-            <div class=" bg-white font-bold text-3xl">100</div>
+       <div class="flex items-stretch bg-gray-500 h-24">
+          <div id="output" class="flex-1 px-2 py-2 justify-end flex items-center text-white text-2xl font-semibold text-right">
+            </div>
           </div>
           <div class="w-auto m-1 h-auto mb-2">
             <div class="m-2 flex justify-between">
-              <div class="bg-gray-200 shadow-md rounded-2xl w-12 h-12 text-black font-medium flex justify-center items-center">AC</div>
-              <div class="bg-gray-200 shadow-md rounded-2xl w-12 h-12 text-black font-medium flex justify-center items-center">(</div>
-              <div class="bg-gray-200 shadow-md rounded-2xl w-12 h-12 text-black font-medium flex justify-center items-center">)</div>
-              <div class="bg-yellow-500 shadow-md rounded-2xl w-12 h-12 text-white font-medium text-xl flex justify-center items-center">/</div>
+              <button onclick="clearScreen()"  class="bg-gray-200 shadow-md rounded-2xl w-12 h-12 text-black font-medium flex justify-center items-center">AC</button>
+              <button onclick="add(' ( ')" class="bg-gray-200 shadow-md rounded-2xl w-12 h-12 text-black font-medium flex justify-center items-center">(</button>
+              <button onclick="add(' ) ')" class="bg-gray-200 shadow-md rounded-2xl w-12 h-12 text-black font-medium flex justify-center items-center">)</button>
+              <button onclick="add('/')" class="bg-yellow-500 shadow-md rounded-2xl w-12 h-12 text-white font-medium text-xl flex justify-center items-center">/</button>
             </div>
             <div class="m-2 flex justify-between">
-              <div class="bg-gray-200 shadow-md rounded-2xl w-12 h-12 text-black font-medium flex justify-center items-center">7</div>
-              <div class="bg-gray-200 shadow-md rounded-2xl w-12 h-12 text-black font-medium flex justify-center items-center">8</div>
-              <div class="bg-gray-200 shadow-md rounded-2xl w-12 h-12 text-black font-medium flex justify-center items-center">9</div>
-              <div class="bg-yellow-500 shadow-md rounded-2xl w-12 h-12 text-white font-medium text-xl flex justify-center items-center">x</div>
+              <button onclick="add('7')" class="bg-gray-200 shadow-md rounded-2xl w-12 h-12 text-black font-medium flex justify-center items-center">7</button>
+              <button onclick="add('8')" class="bg-gray-200 shadow-md rounded-2xl w-12 h-12 text-black font-medium flex justify-center items-center">8</button>
+              <button onclick="add('9')" class="bg-gray-200 shadow-md rounded-2xl w-12 h-12 text-black font-medium flex justify-center items-center">9</button>
+              <button onclick="add('*')" class="bg-yellow-500 shadow-md rounded-2xl w-12 h-12 text-white font-medium text-xl flex justify-center items-center">x</button>
             </div>
             <div class="m-2 flex justify-between">
-              <div class="bg-gray-200 shadow-md rounded-2xl w-12 h-12 text-black font-medium flex justify-center items-center">4</div>
-              <div class="bg-gray-200 shadow-md rounded-2xl w-12 h-12 text-black font-medium flex justify-center items-center">5</div>
-              <div class="bg-gray-200 shadow-md rounded-2xl w-12 h-12 text-black font-medium flex justify-center items-center">6</div>
-              <div class="bg-yellow-500 shadow-md rounded-2xl w-12 h-12 text-white font-medium text-xl flex justify-center items-center">-</div>
+              <button onclick="add('4')" class="bg-gray-200 shadow-md rounded-2xl w-12 h-12 text-black font-medium flex justify-center items-center">4</button>
+              <button onclick="add('5')" class="bg-gray-200 shadow-md rounded-2xl w-12 h-12 text-black font-medium flex justify-center items-center">5</button>
+              <button onclick="add('6')" class="bg-gray-200 shadow-md rounded-2xl w-12 h-12 text-black font-medium flex justify-center items-center">6</button>
+              <button onclick="add('-')" class="bg-yellow-500 shadow-md rounded-2xl w-12 h-12 text-white font-medium text-xl flex justify-center items-center">-</button>
             </div>
             <div class="m-2 flex justify-between">
-              <div class=" bg-gray-200 shadow-md rounded-2xl w-12 h-12 text-black font-medium flex justify-center items-center">1</div>
-              <div class=" bg-gray-200 shadow-md rounded-2xl w-12 h-12 text-black font-medium flex justify-center items-center">2</div>
-              <div class="bg-gray-200 shadow-md rounded-2xl w-12 h-12 text-black font-medium flex justify-center items-center">3</div>
-              <div class="bg-yellow-500 shadow-md rounded-2xl w-12 h-12 text-black font-medium text-xl flex justify-center items-center">+</div>
+              <button onclick="add('1')" class=" bg-gray-200 shadow-md rounded-2xl w-12 h-12 text-black font-medium flex justify-center items-center">1</button>
+              <button onclick="add('2')" class=" bg-gray-200 shadow-md rounded-2xl w-12 h-12 text-black font-medium flex justify-center items-center">2</button>
+              <button onclick="add('3')" class="bg-gray-200 shadow-md rounded-2xl w-12 h-12 text-black font-medium flex justify-center items-center">3</button>
+              <button onclick="add('+')" class="bg-yellow-500 shadow-md rounded-2xl w-12 h-12 text-white font-medium text-xl flex justify-center items-center">+</button>
             </div>
             <div class="m-2 flex justify-between">
-              <div class="bg-gray-200 shadow-md rounded-2xl w-full h-12 text-black font-medium flex justify-center items-center">0</div>
+              <button onclick="add('0')" class="bg-gray-200 shadow-md rounded-2xl w-full h-12 text-black font-medium flex justify-center items-center">0</button>
               <div class="flex w-full ml-3 justify-between">
-                <div class="bg-gray-200 shadow-md rounded-2xl w-12 h-12 text-black font-medium flex justify-center items-center">.</div>
-                <div class="bg-yellow-500 shadow-md rounded-2xl w-12 h-12 text-white font-medium text-xl flex justify-center items-center">=</div>
+                <button onclick="add('.')" class="bg-gray-200 shadow-md rounded-2xl w-12 h-12 text-black font-medium flex justify-center items-center">.</button>
+                <button onclick="calculate()" class="bg-yellow-500 shadow-md rounded-2xl w-12 h-12 text-white font-medium text-xl flex justify-center items-center">=</button>
               </div>
             </div>
           </div>
         </div>
       </div>
 </body>
+<script>
+  function add(value) {
+    var output = document.getElementById('output');
+    output.innerHTML += value;
+  }
+  
+  function calculate() {
+    var output = document.getElementById('output');
+    var result = eval(output.innerHTML);
+    output.innerHTML = result;
+  }
+  
+  function clearScreen() {
+    var output = document.getElementById('output');
+    output.innerHTML = '';
+  }
+   </script>
 </html>
